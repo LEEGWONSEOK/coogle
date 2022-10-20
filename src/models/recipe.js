@@ -50,7 +50,7 @@ module.exports = class Recipe extends Sequelize.Model {
       },
       {
         sequelize,
-        timestamps: false,
+        timestamps: true,
         underscored: true,
         modelName: 'Recipe',
         tableName: 'recipes',
