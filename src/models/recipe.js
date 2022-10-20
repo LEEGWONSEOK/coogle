@@ -60,4 +60,11 @@ module.exports = class Recipe extends Sequelize.Model {
       }
     );
   }
+
+  static associate(db) {
+    // User : Recipe = 1 : N
+    db.Recipe.belongsTo(db.User, {
+      foreignKey: 'user_id',
+    });
+  }
 };

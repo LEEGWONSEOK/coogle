@@ -40,20 +40,10 @@ module.exports = class User extends Sequelize.Model {
     );
   }
 
-  // static associate(db) {
-  //   // User vs Post   >>   1:N
-  //   db.User.hasMany(db.Post);
-
-  //   // User vs User   >>   N:M
-  //   db.User.belongsToMany(db.User, {
-  //     foreignKey: 'followingId', // ForeignKey 이름 변경(누가 팔로워고 팔로잉인지 확인하기 위해 라벨링)
-  //     as: 'Followers', // Followers인 이유? => 팔로워들을 가져올려면 팔로잉을 알아야 된다
-  //     through: 'follows',
-  //   });
-  //   db.User.belongsToMany(db.User, {
-  //     foreignKey: 'followerId',
-  //     as: 'Followings',
-  //     through: 'follows',
-  //   });
-  // }
+  static associate(db) {
+    // User : Recipe = 1 : N
+    db.User.hasMany(db.Recipe, {
+      foreignKey: 'user_id',
+    });
+  }
 };
