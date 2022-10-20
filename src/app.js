@@ -5,9 +5,13 @@ const express = require('express');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const routes = require('./routes');
-const { sequelize } = require('./models');
 
-const PORT = 8080;
+const { sequelize } = require('./models');
+const { errorHandler } = require('./middlewares/error-handler');
+
+const { env } = process;
+
+const port = env.PORT;
 const app = express();
 const { log, error } = console;
 
@@ -27,8 +31,16 @@ sequelize
 /* 호출 방지 */
 app.get('/favicon.ico', (req, res) => res.status(204));
 
+/* API 라우터 */
 app.use('/api', routes);
 
-app.listen(PORT, () => {
-  log(`Express Server가 포트 '${PORT}'에서 실행중입니다.`);
+/* ErrorHandler */
+app.get('*', (req, res) => {
+  res.status(404).json({ message: '404 Not Found' });
+});
+app.use(errorHandler);
+
+/* Server 연결 */
+app.listen(port, () => {
+  log(`Express Server가 포트 '${port}'에서 실행중입니다.`);
 });
