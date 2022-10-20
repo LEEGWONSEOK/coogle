@@ -2,9 +2,8 @@ const Sequelize = require('sequelize');
 
 const env = process.env.NODE_ENV || 'development';
 
-const config = require('../config/config')[env]; // 설정파일 불러오기
+const config = require('../config/config')[env];
 
-// 만들 모델
 const User = require('./user');
 const Recipe = require('./recipe');
 const RecipeCategory = require('./recipe-category');
@@ -38,8 +37,8 @@ Tip.init(sequelize);
 TipCategory.init(sequelize);
 Review.init(sequelize);
 
-// User.associate(db);
-// Recipe.associate(db);
+User.associate(db);
+Recipe.associate(db);
 // RecipeCategory.associate(db);
 // Tip.associate(db);
 // TipCategory.associate(db);

@@ -1,3 +1,5 @@
+// @ts-check
+
 const dotenv = require('dotenv');
 
 dotenv.config();
