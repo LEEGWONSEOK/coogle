@@ -7,5 +7,5 @@
 ### node Modules ####
 /node_modules
 
-### dotenv ###
+### dotenv(config) ###
 .env
