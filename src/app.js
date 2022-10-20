@@ -15,11 +15,12 @@ dotenv.config();
 app.use(morgan('dev'));
 
 sequelize
-  .sync({ force: true }) // force: true >> 테이블 다 지우고 다시 생성(데이터 다 날아감, 실무X) / alter: true >> 데이터 유지 가능
+  .sync({ force: true })
   .then(() => {
-    log('✅ DB connect!');
+    log('DB 연결을 성공했습니다.');
   })
   .catch((err) => {
+    log('DB 연결을 실패했습니다.');
     error(err);
   });
 
@@ -29,5 +30,5 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 app.use('/api', routes);
 
 app.listen(PORT, () => {
-  log(`The Express server is listening at port : ${PORT}`);
+  log(`Express Server가 포트 '${PORT}'에서 실행중입니다.`);
 });
