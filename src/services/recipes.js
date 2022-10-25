@@ -1,4 +1,4 @@
-// @ts-check
+const { Recipe } = require('../models/recipe');
 
 const { log } = console;
 

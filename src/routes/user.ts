@@ -1,6 +1,4 @@
-// @ts-check
-
-const express = require('express');
+import express from 'express';
 
 const router = express.Router({ mergeParams: true });
 
@@ -13,4 +11,4 @@ router.get('/:id', (req, res) => {
   res.send(`users router ${id}`);
 });
 
-module.exports = router;
+export default router;
