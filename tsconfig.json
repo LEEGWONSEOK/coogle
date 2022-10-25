@@ -1,0 +1,15 @@
+{
+  "ts-node": {
+    "files": true
+  },
+  "compilerOptions": {
+    "strict": true,
+    "target": "es5",
+    "lib": ["es2020"],
+    "esModuleInterop": true,
+    "outDir": "dist/",
+    "moduleResolution": "node",
+    "typeRoots": ["./types"]
+  },
+  "include": ["src/*.ts"]
+}
