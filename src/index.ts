@@ -46,7 +46,7 @@ app.get('*', (req, res) => {
 });
 //app.use(errorHandler);
 
-// jenkins test
+// jenkins test2
 
 /* Server 연결 */
 app.listen(port, () => {
