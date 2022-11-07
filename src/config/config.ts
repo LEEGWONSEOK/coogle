@@ -1,12 +1,10 @@
-// @ts-check
-
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 
 dotenv.config();
 
 const { env } = process;
 
-module.exports = {
+export default {
   development: {
     username: env.DB_USERNAME,
     password: env.DB_PASSWORD,
