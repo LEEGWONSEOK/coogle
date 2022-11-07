@@ -46,6 +46,8 @@ app.get('*', (req, res) => {
 });
 //app.use(errorHandler);
 
+// jenkins test
+
 /* Server 연결 */
 app.listen(port, () => {
   console.log(`Express Server가 포트 '${port}'에서 실행중입니다.`);
