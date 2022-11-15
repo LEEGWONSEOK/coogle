@@ -4,13 +4,43 @@ dotenv.config();
 
 const { env } = process;
 
-export default {
+type Config = {
+  username: string;
+  password: string;
+  database: string;
+  host: string;
+  [key: string]: string | boolean;
+};
+interface IConfigGroup {
+  development: Config;
+  test: Config;
+  production: Config;
+}
+const config: IConfigGroup = {
   development: {
-    username: env.DB_USERNAME,
-    password: env.DB_PASSWORD,
-    database: env.DB_DATABASE,
-    host: env.DB_HOST,
-    dialect: 'mysql',
-    logging: false,
+    username: env.DB_USERNAME!,
+    password: env.DB_PASSWORD!,
+    database: env.DB_DATABASE!,
+    host: env.DB_HOST!,
+    dialect: env.DB_DIALECT!,
+    logging: false!,
+  },
+  test: {
+    username: env.DB_USERNAME!,
+    password: env.DB_PASSWORD!,
+    database: env.DB_DATABASE!,
+    host: env.DB_HOST!,
+    dialect: env.DB_DIALECT!,
+    logging: false!,
+  },
+  production: {
+    username: env.DB_USERNAME!,
+    password: env.DB_PASSWORD!,
+    database: env.DB_DATABASE!,
+    host: env.DB_HOST!,
+    dialect: env.DB_DIALECT!,
+    logging: false!,
   },
 };
+
+export default config;
