@@ -2,17 +2,23 @@ import { DataTypes, Model } from 'sequelize';
 import { dbType } from './index';
 import { sequelize } from './sequelize';
 
-class RecipeCategory extends Model {
+class Tip extends Model {
   public readonly id!: number;
   public title!: string;
+  public content!: number;
+  public category!: number;
   public readonly createAt!: Date;
 }
 
-RecipeCategory.init(
+Tip.init(
   {
     title: {
       type: DataTypes.STRING(30),
-      comment: '레시피 카테고리 제목',
+      comment: '팁 제목',
+    },
+    content: {
+      type: DataTypes.TEXT,
+      comment: '팁 내용',
     },
     createAt: {
       type: DataTypes.DATE,
@@ -23,15 +29,15 @@ RecipeCategory.init(
     sequelize,
     underscored: true,
     timestamps: false,
-    modelName: 'RecipeCategory',
-    tableName: 'recipeCategory',
+    modelName: 'Tip',
+    tableName: 'tip',
     charset: 'utf8mb4',
     collate: 'utf8mb4_general_ci',
   }
 );
 
 export const associate = (db: dbType) => {
-  db.RecipeCategory.hasMany(db.Recipe, { foreignKey: 'category' });
+  db.Tip.belongsTo(db.TipCategory, { foreignKey: 'category' });
 };
 
-export default RecipeCategory;
+export default Tip;
