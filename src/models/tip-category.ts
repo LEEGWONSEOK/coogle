@@ -1,4 +1,4 @@
-import { DataTypes, Model } from 'sequelize';
+import { DataTypes, Model, Sequelize } from 'sequelize';
 import { dbType } from './index';
 import { sequelize } from './sequelize';
 
@@ -16,6 +16,7 @@ TipCategory.init(
     },
     createAt: {
       type: DataTypes.DATE,
+      defaultValue: Sequelize.fn('now'),
       comment: '생성일',
     },
   },
@@ -24,7 +25,7 @@ TipCategory.init(
     underscored: true,
     timestamps: false,
     modelName: 'TipCategory',
-    tableName: 'tipCategory',
+    tableName: 'tip_category',
     charset: 'utf8mb4',
     collate: 'utf8mb4_general_ci',
   }

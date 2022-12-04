@@ -22,7 +22,7 @@ const config: IConfigGroup = {
     password: env.DB_PASSWORD!,
     database: env.DB_DATABASE!,
     host: env.DB_HOST!,
-    dialect: env.DB_DIALECT!,
+    dialect: 'mysql'!,
     logging: false!,
   },
   test: {
@@ -30,7 +30,7 @@ const config: IConfigGroup = {
     password: env.DB_PASSWORD!,
     database: env.DB_DATABASE!,
     host: env.DB_HOST!,
-    dialect: env.DB_DIALECT!,
+    dialect: 'mysql'!,
     logging: false!,
   },
   production: {
@@ -38,7 +38,7 @@ const config: IConfigGroup = {
     password: env.DB_PASSWORD!,
     database: env.DB_DATABASE!,
     host: env.DB_HOST!,
-    dialect: env.DB_DIALECT!,
+    dialect: 'mysql'!,
     logging: false!,
   },
 };

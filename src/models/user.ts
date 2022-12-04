@@ -1,28 +1,31 @@
-import { DataTypes, Model } from 'sequelize';
+import { DataTypes, Model, Sequelize } from 'sequelize';
 import { dbType } from './index';
 import { sequelize } from './sequelize';
 
 class User extends Model {
   public readonly id!: number;
-  public email!: string;
+  public acount!: string;
   public nickname!: string;
   public readonly createAt!: Date;
 }
 
 User.init(
   {
-    email: {
+    account: {
       type: DataTypes.STRING(100),
       allowNull: false,
       unique: true,
-      comment: '유저 이메일',
+      defaultValue: 'account-test-01',
+      comment: '계정',
     },
     nickname: {
       type: DataTypes.STRING(30),
-      comment: '레시피 설명',
+      unique: true,
+      comment: '닉네임',
     },
     createAt: {
       type: DataTypes.DATE,
+      defaultValue: Sequelize.fn('now'),
       comment: '생성일',
     },
   },

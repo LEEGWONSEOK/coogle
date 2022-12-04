@@ -1,4 +1,4 @@
-import { DataTypes, Model } from 'sequelize';
+import { DataTypes, Model, Sequelize } from 'sequelize';
 import { dbType } from './index';
 import { sequelize } from './sequelize';
 
@@ -23,6 +23,7 @@ Review.init(
     },
     createAt: {
       type: DataTypes.DATE,
+      defaultValue: Sequelize.fn('now'),
       comment: '생성일',
     },
   },
